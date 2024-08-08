@@ -1,0 +1,30 @@
+alt-profanity-check==1.5.1
+annotated-types==0.7.0
+anyio==4.4.0
+blinker @ file:///croot/blinker_1696539051175/work
+certifi==2024.7.4
+click @ file:///croot/click_1698129812380/work
+distro==1.9.0
+Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1712667726126/work
+h11==0.14.0
+httpcore==1.0.5
+httpx==0.27.0
+idna==3.7
+importlib-metadata @ file:///croot/importlib_metadata-suite_1704813515092/work
+itsdangerous @ file:///croot/itsdangerous_1716533337253/work
+Jinja2 @ file:///croot/jinja2_1716993405101/work
+jiter==0.5.0
+joblib==1.4.2
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+numpy==2.0.1
+openai==1.40.1
+pydantic==2.8.2
+pydantic_core==2.20.1
+scikit-learn==1.5.1
+scipy==1.14.0
+sniffio==1.3.1
+threadpoolctl==3.5.0
+tqdm==4.66.5
+typing_extensions==4.12.2
+Werkzeug @ file:///croot/werkzeug_1716533313107/work
+zipp @ file:///croot/zipp_1704206909481/work
