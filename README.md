@@ -7,3 +7,11 @@ This project consists of a simple LLM based chatbot with adheres to a few rules 
 - Front end: HTML, CSS, JavaScript
 - Back end: Python, Flask, scikit-learn
 - Language Model: gpt-4o-mini
+
+## To Run
+Since this model uses an OpenAI model you will need to install the OpenAI client and obtain an OpenAI API Key. You can learn how to do that here: https://platform.openai.com/docs/quickstart
+
+Once you have obtained a key you can run the full pipeline with the simple command:
+```
+docker compose up -d
+```
