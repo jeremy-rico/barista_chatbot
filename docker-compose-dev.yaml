@@ -1,0 +1,17 @@
+version: '0.1'
+name: barista-chatbot
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env.dev
+    environment:
+      FLASK_ENV: development
+
