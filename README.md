@@ -13,5 +13,5 @@ Since this model uses an OpenAI model you will need to install the OpenAI client
 
 Once you have obtained a key you can run the full pipeline with the simple command:
 ```
-docker compose up -d
+docker compose -f docker-compose-dev.yaml up
 ```
