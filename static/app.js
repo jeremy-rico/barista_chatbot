@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function addMessageToChat(message, messageClass) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', messageClass);
-        messageElement.textContent = message;
+        //messageElement.textContent = message;
+	messageElement.innerHTML = marked.parse(message); // Render markdown
         chatHistory.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
     }

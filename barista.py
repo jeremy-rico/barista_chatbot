@@ -1,4 +1,3 @@
-#import re
 import json
 import profanity_check as pc
 
@@ -43,16 +42,8 @@ def is_profane(message:str, thresh:float=0.5)->bool:
     score = pc.predict_prob([message])[0]
     return score > thresh
 
-# Check for personal opinions
-#might use might not
-def asks_for_personal_opinion(message):
-    #check for intent with nltk
-    return
-
-#check intent
-# might use might not
-def is_related_to_coffee(message):
-    return
+def create_user_query(user_message:str)->str:
+    return user_message.lower().strip()
 
 # main generation response. Needs cleaning.
 def generate_response(user_message:str)->str:
@@ -60,10 +51,13 @@ def generate_response(user_message:str)->str:
     if is_profane(user_message):
         return "Your message contains foul language. Please keep the conversation respectuful."
 
+    # Create user query
+    user_query = create_user_query(user_message)
+    
     # Append User message to message history
     message_history.append({
         "role": "user",
-        "content": user_message.lower().strip()
+        "content": user_query
     })
 
     # Invoke model
