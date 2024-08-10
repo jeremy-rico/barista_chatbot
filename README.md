@@ -5,13 +5,22 @@ This project consists of a simple LLM based chatbot with adheres to a few rules 
 
 ## Tech Stack
 - Front end: HTML, CSS, JavaScript
-- Back end: Python, Flask, scikit-learn
+- Back end: Python, Flask, scikit-learn 
 - Language Model: gpt-4o-mini
 
 ## To Run
-Since this model uses an OpenAI model you will need to install the OpenAI client and obtain an OpenAI API Key. You can learn how to do that here: https://platform.openai.com/docs/quickstart
+To run this application you will need two things:
+1. Docker
+>You can find Docker installation instructions here: https://docs.docker.com/engine/install/
+2. An OPENAI_API_KEY environmental variable
+>You will need to obtain an OpenAI API key and set it in your local shell environment. You can learn how to do that here: https://platform.openai.com/docs/quickstart
 
-Once you have obtained a key you can run the full pipeline with the simple command:
+If you have to run docker using root privledges run this line:
+```
+sudo -E docker compose -f docker-compose-dev.yaml up
+```
+
+If you do not need root privledges to run docker than run this line:
 ```
 docker compose -f docker-compose-dev.yaml up
 ```
