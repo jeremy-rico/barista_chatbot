@@ -15,7 +15,7 @@ To run this application you will need two things:
 2. An OPENAI_API_KEY environmental variable
 >You will need to obtain an OpenAI API key and set it in your local shell environment. You can learn how to do that here: https://platform.openai.com/docs/quickstart
 
->Also note you will need to export the variable for it to be accessible to Docker ```export OPENAI_APIKEY=your_api_key```
+>Also note you will need to export the variable for it to be accessible to Docker ```export OPENAI_API_KEY=your_api_key```
 
 If you have to run docker using root privledges run this line:
 ```
