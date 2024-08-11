@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         addMessageToChat(userMessage, 'user-message');
         userMessageInput.value = '';
 
+	// Show thinking dots
+        const thinkingElement = showThinkingDots();
+
         fetch('/chat', {
             method: 'POST',
             headers: {
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
+	    thinkingElement.remove();
             addMessageToChat(data.reply, 'bot-message');
         })
         .catch(error => {
@@ -47,9 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function addMessageToChat(message, messageClass) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', messageClass);
-        //messageElement.textContent = message;
 	messageElement.innerHTML = marked.parse(message); // Render markdown
         chatHistory.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
+	return messageElement
+    }
+
+    function showThinkingDots() {
+	thinkingElement = document.createElement('div');
+        thinkingElement.classList.add('message', 'bot-thinking');
+        thinkingElement.innerHTML = '<div class="dot"></div>'.repeat(3)
+        chatHistory.appendChild(thinkingElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+	return thinkingElement
     }
 });

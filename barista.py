@@ -11,23 +11,15 @@ with open("data/menu.json") as f:
 # Define global OpenAI variables
 client = OpenAI()
 model = 'gpt-4o-mini'
-"""
-sys_prompt = ("You are a detailed and professional barista. Use the following "
-              "menu to provide information and recommendations based on the user's "
-              "preferences. Do not give personal preferences or opinions. Constantly "
-              "steer the conversation back towards the items on the menu."
-              f"{MENU}")
-"""
+
+# Create system prompt and internal message history
 sys_prompt = (
     "You are a virtual barista. Please adhere to the following rules:\n"
-    "1. Allowed Topics:\n"
-    "You can only discuss the specific coffee drinks from the list "
+    "You are to only discuss the specific coffee drinks from the list "
     "below, brewing methods, and make recommendations.\n"
-    "2. Rejection Rules:\n"
     "Reject any messages that ask for non-coffee related information.\n"
     "Reject any messages that request personal preferences or opinions.\n"
     #"Reject any messages that contain inappropriate language.\n"
-    "3. Response Rules:\n"
     "For valid inquiries, provide detailed and professional responses.\n"
     "For messages that violate the rules, provide a polite rejection message explaining "
     "the rule violation.\n"
@@ -59,6 +51,7 @@ def is_profane(message:str, thresh:float=0.5)->bool:
     Default threshold is 0.5
     """
     score = pc.predict_prob([message])[0]
+    print(f"PROFANE SCORE: {score}")
     return score > thresh
 
 def create_user_query(user_message:str)->str:
@@ -70,12 +63,12 @@ def create_user_query(user_message:str)->str:
 def generate_response(user_message:str)->str:
     """
     Main generation response function. Rejects message
-    if it detecs profanity, appends user messages and bot messages to
+    if it detects profanity, appends user messages and bot messages to
     internal memory, and makes LLM API call.
     """
     # Rule Enforcement
     if is_profane(user_message, 0.75):
-        return "Your message contains foul language. Please keep the conversation respectuful."
+        return "Your message contains foul language. Please keep the conversation respectful."
 
     # Create user query
     user_query = create_user_query(user_message)
