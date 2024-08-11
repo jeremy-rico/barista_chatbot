@@ -1,7 +1,7 @@
 # Virtual Barista Chatbot
 
 ## Description
-This project consists of a full stack application for a LLM based barista chatbot. The front end includes a simple UI in which a user can input a text message and interact with the chat bot. The back end filters profanity and sends an API request to a text completion model. The model then provides a text response.
+This project consists of a full stack application for a LLM based barista chatbot. The front end includes a simple UI in which a user can input a text message and interact with the chatbot. The back end filters profanity and sends an API request to a text completion model. The model then provides a text response.
 
 The chat model adheres to a few rules and behavior requirements as described in the assignment document. It's main goal is to provide detailed and professional information on a list of specific coffee drinks from a menu.
 
