@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Start conversation with default message
+    default_message = "Hello! How can I assist you with your coffee today?"
+    addMessageToChat(default_message, 'bot-message')
+
     function sendMessage() {
         const userMessage = userMessageInput.value.trim();
         if (userMessage === '') return;
