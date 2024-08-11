@@ -19,6 +19,6 @@ def test_profanity_filter(client):
     data = response.get_json()
     profanity_message = (
         "Your message contains foul language. Please "
-        "keep the conversation respectuful."
+        "keep the conversation respectful."
     )
     assert data['reply'] == profanity_message

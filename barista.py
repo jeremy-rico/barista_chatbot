@@ -51,7 +51,6 @@ def is_profane(message:str, thresh:float=0.5)->bool:
     Default threshold is 0.5
     """
     score = pc.predict_prob([message])[0]
-    print(f"PROFANE SCORE: {score}")
     return score > thresh
 
 def create_user_query(user_message:str)->str:
@@ -62,11 +61,10 @@ def create_user_query(user_message:str)->str:
 
 def generate_response(user_message:str)->str:
     """
-    Main generation response function. Rejects message
-    if it detects profanity, appends user messages and bot messages to
-    internal memory, and makes LLM API call.
+    Main generation response function. Rejects message if it detects profanity, 
+    appends user messages and bot messages to internal memory, and makes LLM API call.
     """
-    # Rule Enforcement
+    # Profanity filtering
     if is_profane(user_message, 0.75):
         return "Your message contains foul language. Please keep the conversation respectful."
 
