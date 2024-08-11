@@ -19,12 +19,12 @@ To run this application you will need two things:
 
 >Also note you will need to export the variable for it to be accessible to Docker ```export OPENAI_API_KEY=your_api_key```
 
-If you have to run docker using root privledges run this line:
+If you have to run docker using root privledges, run this line:
 ```
 sudo -E docker compose -f docker-compose-dev.yaml up
 ```
 
-If you do not need root privledges to run docker than run this line:
+If you do not need root privledges to run docker, run this line:
 ```
 docker compose -f docker-compose-dev.yaml up
 ```
